@@ -13,4 +13,14 @@ describe Task do
       expect(this_list.tasks.not_done).to eq([not_done_task])
     end
   end
+
+    describe '.done' do
+      it 'returns only tasks are done' do
+        this_list = List.create({:name => 'homework', :id => 1})
+        done_task = Task.create({:description => 'stuff', :done => true, :list_id => 1})
+        not_done_task = Task.create({:description => 'frank', :done => false, :list_id => 1})
+
+        expect(this_list.tasks.done).to eq([done_task])
+  end
+end
 end
